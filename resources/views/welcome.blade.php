@@ -42,6 +42,11 @@
 			<div class="content">
 				<div class="title">Laravel 5</div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
+                <ul>
+                    @foreach($cat as $c)
+                        <li>{{ $c->name }} - {{ $c->description }}</li>
+                    @endforeach
+                </ul>
 			</div>
 		</div>
 	</body>
