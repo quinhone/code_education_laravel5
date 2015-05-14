@@ -13,6 +13,14 @@
 
 Route::get('/', 'WelcomeController@index');
 
+Route::group(['prefix' => 'admin'], function(){
+
+	Route::get('/', 		array('as' => 'admin_index',	'uses' => 'AdminController@index'));
+    Route::get('category',	array('as' => 'admin_category', 'uses' => 'AdminCategoriesController@index'));
+    Route::get('product', 	array('as' => 'admin_product', 	'uses' => 'AdminProductsController@index'));
+
+});
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
