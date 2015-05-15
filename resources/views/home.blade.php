@@ -2,15 +2,9 @@
 
 @section('content')
 <div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
-
-				<div class="panel-body">
-					You are logged in!
-				</div>
-			</div>
+	<div class="home row">
+		  <h1>Hello, wellcome to CodeCommerce!</h1>
+		  <img src="{{ asset('/img/ecommerce.jpg') }}" alt="">
 		</div>
 	</div>
 </div>
