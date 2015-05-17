@@ -9,16 +9,16 @@ use CodeCommerce\Product;
 class ProductsController extends Controller
 {
 
-	private $products;
+	private $productModel;
 
 	public function __construct(Product $products)
 	{
-		$this->products = $products;
+		$this->productModel = $products;
 	}	
 
 	public function index()
 	{
-		$products = $this->products->all();
+		$products = $this->productModel->all();
 		return view('products.index', compact('products'));
 		
 	}
@@ -26,6 +26,39 @@ class ProductsController extends Controller
 	public function create()
 	{
 		return view('products.create');
+	}
+
+	public function store(Requests\ProductRequest $request)
+	{
+
+		$input = $request->all();
+		
+		$product = $this->productModel->fill($input);
+
+		$product->save();
+
+		return redirect('products_index');
+	}
+
+	public function edit($id)
+	{
+		$products = $this->productModel->find($id);
+		return view('products.edit', compact('products'));
+	}
+
+	public function update(Requests\ProductRequest $request, $id)
+	{
+		$this->productModel->find($id)->update($request->all());
+
+		return redirect()->route('products_index');
+	}
+
+
+	public function destroy($id)
+	{
+		$this->productModel->find($id)->delete();
+
+		return redirect()->route('products_index');
 	}
 
 }

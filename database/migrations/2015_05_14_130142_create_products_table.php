@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration {
             $table->string('name', 80);
             $table->text('description');
             $table->decimal('price', 8, 2);
+            $table->enum('featured', ['0', '1']);
+            $table->enum('recommend', ['0', '1']);
 			$table->timestamps();
 		});
 	}
