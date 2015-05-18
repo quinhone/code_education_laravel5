@@ -13,29 +13,35 @@
 
 		<table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<th width="5%" scope="col" align="left">ID</th>
-				<th width="25%" scope="col" align="left">Name</th>
-				<th width="25%" scope="col" align="left">Description</th>
-				<th width="10%" scope="col" align="center">Featured</th>
-				<th width="10%" scope="col" align="center">Recommend</th>
-				<th width="10%" scope="col" align="right">Price</th>
-				<th width="15%" scope="col" align="right">&nbsp;</th>
+				<th scope="col" align="left">ID</th>
+				<th scope="col" align="left">Name</th>
+				<th scope="col" align="left">Description</th>
+				<th scope="col" align="center">Featured</th>
+				<th scope="col" align="center">Recommend</th>
+				<th scope="col" align="right">Price</th>
+				<th scope="col" align="left">Category</th>
+				<th scope="col" align="right">&nbsp;</th>
 			</tr>
 			@foreach($products as $product)
 			<tr>
-				<td width="5%">{{ $product->id }}</td>
-				<td width="25%">{{ $product->name }}</td>
-				<td width="25%">{{ $product->description }}</td>
-				<td width="10%" align="center">@if ($product->featured === '1') Sim @else Não @endif</td>
-				<td width="10%" align="center">@if ($product->recommend === '1')  Sim @else Não @endif</td>
-				<td width="10%" align="right">{{ $product->price }}</td>
-				<td width="15%" align="right">
+				<td >{{ $product->id }}</td>
+				<td >{{ $product->name }}</td>
+				<td >{{ $product->description }}</td>
+				<td align="center">@if ($product->featured === '1') Sim @else Não @endif</td>
+				<td align="center">@if ($product->recommend === '1')  Sim @else Não @endif</td>
+				<td align="right">{{ $product->price }}</td>
+				<td align="left">{{ $product->category->name }}</td>
+				<td align="right">
 					<a href="{{ route('products_edit', ['id' => $product->id]) }}" class="btn btn-primary btn-xs">Edit</a>
 					<a href="{{ route('products_delete', ['id' => $product->id]) }}" class="btn btn-danger btn-xs">Delete</a>
 				</td>
 			</tr>
 			@endforeach
 		</table>
+
+		<div class="text-center">
+			{!! $products->render(); !!}
+		</div>
 
 		
 	</div>

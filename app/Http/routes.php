@@ -11,11 +11,11 @@
 |
 */
 
-Route::pattern('id', '[0-9]+');
+//Route::pattern('id', '[0-9]+');
 
 Route::get('/', 'HomeController@index');
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function(){
 
 	Route::get('/', 		array('as' => 'admin_index',	'uses' => 'AdminController@index'));
 

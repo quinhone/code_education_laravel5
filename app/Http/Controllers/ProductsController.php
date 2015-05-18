@@ -5,6 +5,7 @@ use CodeCommerce\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use CodeCommerce\Product;
+use CodeCommerce\Category;
 
 class ProductsController extends Controller
 {
@@ -18,14 +19,16 @@ class ProductsController extends Controller
 
 	public function index()
 	{
-		$products = $this->productModel->all();
+		$products = $this->productModel->orderBy('id', 'desc')->paginate(10);
 		return view('products.index', compact('products'));
 		
 	}
 
-	public function create()
+	public function create(Category $category)
 	{
-		return view('products.create');
+		
+		$categories = $category->lists('name', 'id');
+		return view('products.create', compact('categories'));
 	}
 
 	public function store(Requests\ProductRequest $request)
@@ -37,13 +40,15 @@ class ProductsController extends Controller
 
 		$product->save();
 
-		return redirect('products_index');
+		return redirect()->route('products_index');
 	}
 
-	public function edit($id)
+	public function edit($id, Category $category)
 	{
+		$categories = $category->lists('name', 'id');
 		$products = $this->productModel->find($id);
-		return view('products.edit', compact('products'));
+
+		return view('products.edit', compact('products', 'categories'));
 	}
 
 	public function update(Requests\ProductRequest $request, $id)

@@ -14,6 +14,12 @@
 		@endif
 
 		{!! Form::open(['route' => ['products_update', $products->id], 'method' => 'put']) !!}		
+
+		<div class="form-group">
+			{!! Form::label('category','Category:') !!}
+			{!! Form::select('category_id', $categories, $products->category->id, ['class' => 'form-control']) !!}
+		</div>
+
 		<div class="form-group">
 			{!! Form::label('name','Name:') !!}
 			{!! Form::text('name', $products->name, ['class' => 'form-control']) !!}

@@ -22,7 +22,7 @@ class AdminCategoriesController extends Controller {
 	 */
 	public function index()
 	{
-        $cat = $this->categories->all();
+        $cat = $this->categories->orderBy('id', 'desc')->paginate(10);
 		return view('admin.category', compact('cat'));
 	}
 

@@ -14,6 +14,12 @@
 		@endif
 
 		{!! Form::open(['url' => 'admin/products/add']) !!}		
+
+		<div class="form-group">
+			{!! Form::label('category','Category:') !!}
+			{!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+		</div>
+
 		<div class="form-group">
 			{!! Form::label('name','Name:') !!}
 			{!! Form::text('name', null, ['class' => 'form-control']) !!}
@@ -45,7 +51,7 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::submit('Add New Category', ['class' => 'btn btn-success pull-right']) !!}
+			{!! Form::submit('Add New Product', ['class' => 'btn btn-success pull-right']) !!}
 		</div>
 		{!! Form::close() !!}
 
