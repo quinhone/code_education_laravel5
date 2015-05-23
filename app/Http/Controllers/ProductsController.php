@@ -3,9 +3,12 @@
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
+use CodeCommerce\ProductImages;
 use Illuminate\Http\Request;
 use CodeCommerce\Product;
 use CodeCommerce\Category;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -66,4 +69,62 @@ class ProductsController extends Controller
 		return redirect()->route('products_index');
 	}
 
+    /**
+     * TRABALHANDO COM UPLOAD DE IMAGES
+     */
+
+    public function images($id)
+    {
+        $product = $this->productModel->find($id);
+
+        return view('products.images', compact('product') );
+    }
+
+    public function createImage($id)
+    {
+        $product = $this->productModel->find($id);
+
+        return view('products.create_image', compact('product') );
+    }
+
+    public function  storeImage(Requests\ProductImageRequest $request, $id, ProductImages $productImages)
+    {
+
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+
+       $image =  $productImages::create(['product_id' => $id, 'extension' => $extension, 'local' => $request['server'] ]);
+
+        switch($request['server'])
+        {
+            case 'local':
+                Storage::disk('local_public')->put($image->id.'.'.$extension, File::get($file));
+             break;
+            case 'S3':
+                Storage::disk('s3')->put($image->id.'.'.$extension, File::get($file));
+            break;
+            default:
+                Storage::disk('local_public')->put($image->id.'.'.$extension, File::get($file));
+            break;
+        }
+
+        return redirect()->route('products_images', ['id' => $id]);
+    }
+
+    public function destroyImage(ProductImages $productImages, $id)
+    {
+        $image = $productImages->find($id);
+
+        if(file_exists(public_path().'/uploads/'.$image->id.'.'.$image->extension))
+        {
+            Storage::disk('local_public')->delete($image->id.'.'.$image->extension);
+         }
+
+        $product = $image->product;
+
+        $image->delete();
+
+        return redirect()->route('products_images', ['id' => $product->id]);
+
+    }
 }
