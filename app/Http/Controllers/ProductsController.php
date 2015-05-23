@@ -95,18 +95,7 @@ class ProductsController extends Controller
 
        $image =  $productImages::create(['product_id' => $id, 'extension' => $extension, 'local' => $request['server'] ]);
 
-        switch($request['server'])
-        {
-            case 'local':
-                Storage::disk('local_public')->put($image->id.'.'.$extension, File::get($file));
-             break;
-            case 'S3':
-                Storage::disk('s3')->put($image->id.'.'.$extension, File::get($file));
-            break;
-            default:
-                Storage::disk('local_public')->put($image->id.'.'.$extension, File::get($file));
-            break;
-        }
+        Storage::disk('local_public')->put($image->id.'.'.$extension, File::get($file));
 
         return redirect()->route('products_images', ['id' => $id]);
     }
