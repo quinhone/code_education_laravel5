@@ -35,6 +35,11 @@
 			{!! Form::text('price', null, ['class' => 'form-control']) !!}
 		</div>
 
+        <div class="form-group">
+            {!! Form::label('tag','Tags: (Digite a tag e tecle enter) ') !!}
+            {!! Form::text('tag', null, ['class' => 'form-control', 'data-role' => 'tagsinput' ]) !!}
+        </div>
+
 		<div class="form-group">
 			<div class="row">
 				<div class="col-md-3">
@@ -57,3 +62,13 @@
 
 	</div>
 @endsection
+
+@section('css')
+    <link href="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput.css') }}" rel="stylesheet">
+@stop
+
+@section('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput.js')  }}"></script>
+    <script src="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput-angular.js')  }}"></script>
+@stop

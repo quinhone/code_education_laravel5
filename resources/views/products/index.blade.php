@@ -26,10 +26,10 @@
 			<tr>
 				<td >{{ $product->id }}</td>
 				<td >{{ $product->name }}</td>
-				<td >{{ $product->description }}</td>
+				<td >{{ str_limit($product->description, $limit=50, $end='...')  }}</td>
 				<td align="center">@if ($product->featured === '1') Sim @else Não @endif</td>
 				<td align="center">@if ($product->recommend === '1')  Sim @else Não @endif</td>
-				<td align="right">{{ $product->price }}</td>
+				<td align="right">{{ number_format($product->price,2,",",".") }}</td>
 				<td align="left">{{ $product->category->name }}</td>
 				<td align="right">
 					<a href="{{ route('products_edit', ['id' => $product->id]) }}" class="btn btn-primary btn-xs">Edit</a>

@@ -23,4 +23,9 @@ class Product extends Model {
         return $this->hasMany('CodeCommerce\ProductImages');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('CodeCommerce\Tag');
+    }
+
 }
