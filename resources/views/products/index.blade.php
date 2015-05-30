@@ -1,49 +1,46 @@
-@extends('app')
+@extends('store.store')
+
+@section('categories')
+    @include('store._siderbar_categories')
+@stop
 
 @section('content')
-	<div class="container">
-		
-		<h1>Products</h1>
+    <div class="col-sm-9 padding-right">
+        <div class="features_items"><!--features_items-->
+            <h2 class="title text-center">Em destaque</h2>
 
-		<div class="row ">
-			<div class="col-md-12">
-				<a href="{{ route('products_create') }}" class="btn btn-success btn-md">Add New Product</a>
-			</div>
-		</div>
+            @foreach($products as $product)
+            <div class="col-sm-3">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            @if( count($product->images))
+                                <img src="{{ url('uploads/'.$product->images->first()->id.'.'.$product->images->first()->extension) }}" alt="" width="189" />
+                            @else
+                                <img src="{{ url('images/no-img.jpg') }}" alt="" width="189" />
+                            @endif
 
-		<table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<th scope="col" align="left">ID</th>
-				<th scope="col" align="left">Name</th>
-				<th scope="col" align="left">Description</th>
-				<th scope="col" align="center">Featured</th>
-				<th scope="col" align="center">Recommend</th>
-				<th scope="col" align="right">Price</th>
-				<th scope="col" align="left">Category</th>
-				<th scope="col" align="right">&nbsp;</th>
-			</tr>
-			@foreach($products as $product)
-			<tr>
-				<td >{{ $product->id }}</td>
-				<td >{{ $product->name }}</td>
-				<td >{{ str_limit($product->description, $limit=50, $end='...')  }}</td>
-				<td align="center">@if ($product->featured === '1') Sim @else Não @endif</td>
-				<td align="center">@if ($product->recommend === '1')  Sim @else Não @endif</td>
-				<td align="right">{{ number_format($product->price,2,",",".") }}</td>
-				<td align="left">{{ $product->category->name }}</td>
-				<td align="right">
-					<a href="{{ route('products_edit', ['id' => $product->id]) }}" class="btn btn-primary btn-xs">Edit</a>
-					<a href="{{ route('products_images', ['id' => $product->id]) }}" class="btn btn-primary btn-xs">Images</a>
-					<a href="{{ route('products_delete', ['id' => $product->id]) }}" class="btn btn-danger btn-xs">Delete</a>
-				</td>
-			</tr>
-			@endforeach
-		</table>
+                            <h2>R$ {{ $product-> price }}</h2>
+                            <p>{{ $product->name  }}</p>
+                            <a href="{{ Request::root() }}/product/2" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>Mais detalhes</a>
 
-		<div class="text-center">
-			{!! $products->render(); !!}
-		</div>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar no carrinho</a>
+                        </div>
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                <h2>R$ {{ $product-> price }}</h2>
+                                <p>{{ $product->name  }}</p>
+                                <a href="{{ Request::root() }}/product/2" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>Mais detalhes</a>
 
-		
-	</div>
-@endsection
+                                <a href="{{ Request::root() }}/cart/2/add" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar no carrinho</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+        </div><!--features_items-->
+
+    </div>
+@stop

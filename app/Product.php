@@ -28,4 +28,15 @@ class Product extends Model {
         return $this->belongsToMany('CodeCommerce\Tag');
     }
 
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', '=',  1)->limit(8)->orderByRaw('RANDOM()');
+    }
+
+    public function scopeRecommend($query)
+    {
+        return $query->where('recommend', '=',  1)->limit(8)->orderByRaw('RANDOM()');
+    }
+
+
 }
