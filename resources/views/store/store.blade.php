@@ -7,12 +7,7 @@
     <meta name="author" content="">
     <title>Home | E-Shop</title>
 
-    <link href="{{ Request::root() }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ Request::root() }}/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ Request::root() }}/css/prettyPhoto.css" rel="stylesheet">
-
-    <link href="{{ Request::root() }}/css/main.css" rel="stylesheet">
-    <link href="{{ Request::root() }}/css/responsive.css" rel="stylesheet">
+    <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
 
 
 </head><!--/head-->
@@ -142,11 +137,6 @@
 
 
 
-<script src="{{ Request::root() }}/js/jquery.js"></script>
-<script src="{{ Request::root() }}/js/bootstrap.min.js"></script>
-<script src="{{ Request::root() }}/js/jquery.scrollUp.min.js"></script>
-<script src="{{ Request::root() }}/js/jquery.prettyPhoto.js"></script>
-<script src="{{ Request::root() }}/js/main.js"></script>
-
+<script src="{{ elixir('js/all.js')  }}"></script>
 </body>
 </html>
