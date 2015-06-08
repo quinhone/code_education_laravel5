@@ -54,7 +54,9 @@ Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function(){
 });
 
 Route::get('/', 'StoreController@index');
-Route::get('category/{id?}', 'ProductsController@index');
+Route::get('category/{id}', array('as' => 'store.category', 'uses' => 'StoreController@category'));
+Route::get('product/{id}', array('as' => 'store.product', 'uses' => 'StoreController@product'));
+Route::get('tag/{tag}',    array('as' => 'products_tag', 'uses' => 'StoreController@productsByTag'));
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

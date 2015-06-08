@@ -7,3 +7,22 @@
 .alert{color: #FF0000;}
 
 .voltar{margin-left: 10px;}
+
+.tags ul
+{
+    padding: 0; margin: 0;
+    /*-webkit-column-count: 3; /* Chrome, Safari, Opera
+    -moz-column-count: 3; /* Firefox
+    column-count: 3;*/
+
+}
+.tags ul li{
+    padding: 5px;
+    color: #09597E;
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-size: .9em;
+    display: inline;
+}
+
+.tags h3{color: #999; font-size: 1.2em;}

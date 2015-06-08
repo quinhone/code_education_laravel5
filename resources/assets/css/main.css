@@ -70,7 +70,7 @@ a#scrollUp i{
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #103361;
+  background: none repeat scroll 0 0 #f29500;
 }
 
 .contactinfo ul li:first-child{
@@ -79,7 +79,7 @@ a#scrollUp i{
 
 .contactinfo ul li a{
   font-size: 12px;
-  color: #ccc;
+  color: #FFF;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -137,6 +137,8 @@ a#scrollUp i{
 .fa-google-plus:hover  {
 	background:#CE3C2D;
 }
+
+.header-middle{background-color: #f2f2f2;}
 
 .header-middle .container .row {
   border-bottom: 1px solid #f5f5f5;
@@ -200,7 +202,6 @@ a#scrollUp i{
 
 
 .shop-menu ul li a {
-  background: #FFFFFF;
   color: #696763;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -554,7 +555,8 @@ ul.sub-menu {
 }
 
 .footer-bottom {
-  background: #1A1A1A;
+  background: #243548;
+    height: 150px;
   padding-top: 10px;
 }
 
@@ -871,7 +873,7 @@ h2.title {
 }
 
 .productinfo h2{
-	color: #3A5C83;
+	color: #ffaa00;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
@@ -1182,7 +1184,6 @@ h2.title {
 
 .view-product img {
   border: 1px solid #F7F7F0;
-  height: 380px;
   width: 100%;
 }
 
@@ -1205,7 +1206,6 @@ h2.title {
 
 #similar-product .carousel-inner .item img {
   display: inline-block;
-  margin-left: 15px;
 }
 
 .item-control {
@@ -1226,9 +1226,9 @@ h2.title {
 .product-information {
   border: 1px solid #F7F7F0;
   overflow: hidden;
-  padding-bottom: 60px;
-  padding-left: 60px;
-  padding-top: 60px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
   position: relative;
 }
 
@@ -1239,9 +1239,8 @@ h2.title {
 }
 
 .product-information h2 {
-  color: #363432;
+  color: #ffaa00;
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
   margin-top: 0;
 }
 
@@ -2404,7 +2403,6 @@ h2.title {
   background:#3A5C83;
   border: 0 none;
   border-radius: 0;
-  margin-top: 16px;
 }
 
 .blank-arrow {
@@ -2532,7 +2530,7 @@ h2.title {
 @media (min-width: 768px) {
 	.header-bottom{
 		padding:0px;
-		background-color: #3259a2;
+		background-color: #3a5c83;
 		margin-bottom:50px;
 	}
 	.mainmenu > ul > li > a{
@@ -2555,7 +2553,7 @@ h2.title {
 		float: none !important;
 	}
 	.header-bottom{
-		background-color:#FF0000;
+		background-color:#3a5c83;
 		
 
 	}

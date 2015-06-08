@@ -1,7 +1,7 @@
 @extends('store.store')
 
 @section('categories')
-    @include('store._siderbar_categories')
+    @include('store.partial.categories')
 @stop
 
 @section('content')
