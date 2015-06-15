@@ -5019,11 +5019,9 @@ h2.title {
 
 
 #cart_items .cart_info .cart_menu {
-  background: #3A5C83;
-  color: #fff;
+  background: #d4dee9;
+  color: #172431;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal;
 }
 
 #cart_items .cart_info .table.table-condensed thead tr {
@@ -6542,8 +6540,6 @@ ul.sub-menu{
 .container .home h1{text-align: center;}
 .container .home {text-align: center;}
 
-.table{margin-top: 15px;}
-
 .alert{color: #FF0000;}
 
 .voltar{margin-left: 10px;}
@@ -6566,4 +6562,8 @@ ul.sub-menu{
 }
 
 .tags h3{color: #999; font-size: 1.2em;}
+
+.table{margin-bottom: 0; margin-top: 0;}
+
+.cart_menu .footer-table{font-size: 1.3em;}
 /*# sourceMappingURL=all.css.map */

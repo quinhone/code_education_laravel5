@@ -58,6 +58,14 @@ Route::get('category/{id}', array('as' => 'store.category', 'uses' => 'StoreCont
 Route::get('product/{id}', array('as' => 'store.product', 'uses' => 'StoreController@product'));
 Route::get('tag/{tag}',    array('as' => 'products_tag', 'uses' => 'StoreController@productsByTag'));
 
+Route::get('cart',    array('as' => 'cart', 'uses' => 'CartController@index'));
+Route::get('cart/getCesta',    array('as' => 'cart_getcesta', 'uses' => 'CartController@getCesta'));
+Route::get('cart/updCesta/{id}/{qtd}',    array('as' => 'cart_updcesta', 'uses' => 'CartController@updCesta'));
+Route::get('cart/getValorTotal',    array('as' => 'cart_gettotal', 'uses' => 'CartController@getValorTotal'));
+
+Route::get('cart/add/{id}',    array('as' => 'cart_add', 'uses' => 'CartController@add'));
+Route::delete('cart/destroy/{id}',    array('as' => 'cart_destroy', 'uses' => 'CartController@destroy'));
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

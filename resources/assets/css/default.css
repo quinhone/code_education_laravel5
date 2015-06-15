@@ -2,8 +2,6 @@
 .container .home h1{text-align: center;}
 .container .home {text-align: center;}
 
-.table{margin-top: 15px;}
-
 .alert{color: #FF0000;}
 
 .voltar{margin-left: 10px;}
@@ -26,3 +24,7 @@
 }
 
 .tags h3{color: #999; font-size: 1.2em;}
+
+.table{margin-bottom: 0; margin-top: 0;}
+
+.cart_menu .footer-table{font-size: 1.3em;}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     <title>Home | E-Shop</title>
 
     <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
+    @yield('css')
 
 
 </head><!--/head-->
@@ -138,5 +139,6 @@
 
 
 <script src="{{ elixir('js/all.js')  }}"></script>
+@yield('scripts')
 </body>
 </html>
