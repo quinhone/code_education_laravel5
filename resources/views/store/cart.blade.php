@@ -31,14 +31,19 @@
                             <td class="cart-delete"><button class="btn btn-danger btn-sm pull-right" ng-click="excluir(un)">Excluir</button></td>
                         </tr>
 
+                        <tr>
+                            <td colspan="4"></td>
+                            <td class="total-cart text-right">TOTAL: R$ [[ total ]]</td>
+                            <td></td>
+                        </tr>
+
                     <tr class="cart_menu">
                         <td colspan="6">
-                            <div class="footer-table pull-right">
-                              <span>TOTAL: R$ [[ total ]]</span>
-                                <a href="" class="btn btn-success"> Finalizar Compra</a>
-                            </div>
+                                <a href="{{ url('/') }}" class="btn btn-warning pull-left"> Continuar Comprando</a>
+                                <a href="" class="btn btn-success pull-right" ng-click="goToCheckout()"> Finalizar Compra</a>
                         </td>
                     </tr>
+
                     </tbody>
                 </table>
             </div>

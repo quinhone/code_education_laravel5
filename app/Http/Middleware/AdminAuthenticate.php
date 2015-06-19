@@ -2,9 +2,9 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated {
+class AdminAuthenticate {
 
 	/**
 	 * The Guard implementation.
@@ -35,7 +35,8 @@ class RedirectIfAuthenticated {
 	{
 		if ($this->auth->check())
 		{
-			return new RedirectResponse(url('/'));
+			if(!Auth::user()->is_admin)
+                return redirect('/');
 		}
 
 		return $next($request);

@@ -1,6 +1,8 @@
 <?php namespace CodeCommerce;
 
 
+use Illuminate\Support\Facades\Session;
+
 class Cart
 {
 
@@ -43,6 +45,12 @@ class Cart
     public function remove($id)
     {
         unset($this->items[$id]);
+    }
+
+    public function emptyCart($session)
+    {
+        //Session::flush($session);
+        Session::forget($session);
     }
 
     public function all()

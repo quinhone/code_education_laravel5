@@ -7,7 +7,12 @@ website: http://invoinn.com
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
+*  {
+    margin:0;
+    padding:0;
+}
 
+html, body {height:100%;}
 body {
   font-family: 'Roboto', sans-serif;
   background:;
@@ -262,7 +267,7 @@ a#scrollUp i{
   outline: medium none;
   padding-left: 10px;
   width: 155px;
-  background-image: url(../images/home/searchicon.png);
+  background-image: url(../../images/home/searchicon.png);
   background-repeat: no-repeat;
   background-position: 130px;
 }
@@ -343,6 +348,7 @@ ul.sub-menu {
 /*************************
 *******Footer CSS******
 **************************/
+footer{position:absolute;    bottom:0;    width:100%;}
 
 #footer {
   background: #172431;

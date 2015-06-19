@@ -23,8 +23,27 @@ app.controller('cartController', function cartController($scope, $http, $window)
                             closeText: ''
                         });
                     }
+
+                    getTotal();
                 }
             });
+        }
+    }
+
+    $scope.goToCheckout = function()
+    {
+        if($scope.itens.length == 0)
+        {
+            $().toastmessage('showToast', {
+                text     : 'Não há itens no seu Carrinho de Compras..',
+                position : 'middle-center',
+                type     : 'warning',
+                closeText: ''
+            });
+        }
+        else
+        {
+            location.href="/checkout/placeOrder";
         }
     }
 

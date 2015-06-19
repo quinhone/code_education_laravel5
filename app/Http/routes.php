@@ -13,9 +13,9 @@
 
 //Route::pattern('id', '[0-9]+');
 
-Route::get('/', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function(){
+Route::group(['prefix' => 'admin', 'middleware' => [ 'auth', 'authAdmin'],  'where' => ['id' => '[0-9]+']], function(){
 
 	Route::get('/', 		array('as' => 'admin_index',	'uses' => 'AdminController@index'));
 
@@ -53,6 +53,13 @@ Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function(){
 
 });
 
+Route::group(['prefix' => 'checkout', 'middleware' =>  'auth'], function(){
+
+    Route::get('placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+
+});
+
+
 Route::get('/', 'StoreController@index');
 Route::get('category/{id}', array('as' => 'store.category', 'uses' => 'StoreController@category'));
 Route::get('product/{id}', array('as' => 'store.product', 'uses' => 'StoreController@product'));
@@ -65,6 +72,7 @@ Route::get('cart/getValorTotal',    array('as' => 'cart_gettotal', 'uses' => 'Ca
 
 Route::get('cart/add/{id}',    array('as' => 'cart_add', 'uses' => 'CartController@add'));
 Route::delete('cart/destroy/{id}',    array('as' => 'cart_destroy', 'uses' => 'CartController@destroy'));
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

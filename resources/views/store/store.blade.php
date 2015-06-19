@@ -14,6 +14,7 @@
 </head><!--/head-->
 
 <body>
+<div class="geral">
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
         <div class="container">
@@ -65,7 +66,7 @@
     <div class="header-bottom"><!--header-bottom-->
         <div class="container">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-7">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
@@ -91,16 +92,22 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-5">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Buscar"/>
+                        @if (Auth::guest())
+                            <input type="text" placeholder="Buscar"/>
+                        @else
+                           <span class="nome-logado">Logado como:  <strong>{{ Auth::user()->name }}</strong></span>
+                            <input type="text" placeholder="Buscar"/>
+                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
     </div><!--/header-bottom-->
 </header><!--/header-->
-<section>
+<section class="content">
     <div class="container">
         <div class="row">
 
@@ -122,9 +129,6 @@
 
 <footer id="footer"><!--Footer-->
 
-
-
-
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
@@ -135,7 +139,7 @@
     </div>
 
 </footer><!--/Footer-->
-
+</div><!--/geral-->
 
 
 <script src="{{ elixir('js/all.js')  }}"></script>
