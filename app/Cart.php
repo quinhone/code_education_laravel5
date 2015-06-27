@@ -1,5 +1,6 @@
-<?php namespace CodeCommerce;
+<?php
 
+namespace CodeCommerce;
 
 use Illuminate\Support\Facades\Session;
 
@@ -8,21 +9,20 @@ class Cart
 
     private $items;
 
-    public function  __construct()
+    public function __construct()
     {
         $this->items = [];
     }
-
 
     public function add($id, $name, $price, $img, $ext)
     {
         $this->items += [
             $id => [
                 'id' => $id,
-                'qtd' => isset($this->items[$id]['qtd']) ? $this->items[$id]['qtd']++ : 1,
+                'qtd' => isset($this->items[$id]['qtd']) ? $this->items[$id]['qtd'] ++ : 1,
                 'price' => $price,
                 'name' => $name,
-                'img' => $img.'.'.$ext
+                'img' => $img . '.' . $ext
             ]
         ];
 
@@ -31,11 +31,10 @@ class Cart
 
     public function update($id, $qtd)
     {
-        if($qtd == 0)
+        if ($qtd == 0)
         {
             unset($this->items[$id]);
-        }
-        else
+        } else
         {
             $this->items[$id]['qtd'] = $qtd;
         }
@@ -47,10 +46,9 @@ class Cart
         unset($this->items[$id]);
     }
 
-    public function emptyCart($session)
+    public function clear()
     {
-        //Session::flush($session);
-        Session::forget($session);
+        $this->items = [];
     }
 
     public function all()
@@ -60,11 +58,10 @@ class Cart
 
     public function isNull()
     {
-        if($this->items)
+        if ($this->items)
         {
             return false;
-        }
-        else
+        } else
         {
             return true;
         }
@@ -73,11 +70,12 @@ class Cart
     public function getTotal()
     {
         $total = 0;
-        foreach($this->items as $items)
+        foreach ($this->items as $items)
         {
             $total += $items['qtd'] * $items['price'];
         }
 
         return $total;
     }
+
 }

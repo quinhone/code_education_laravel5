@@ -3,7 +3,11 @@
 @section('content')
 
     <div class="container" >
-        <h1 class="text-center">A ordem foi gerada com sucesso... Aguarde a próxima etapa do curso</h1>
+        @if($cart == 'empty')
+        <h1 class="text-center">Seu carrinho está vazio.</h1>
+        @else
+        <h1 class="text-center">O pedido #{{ $order->id }} foi gerada com sucesso...</h1>
+        @endif
     </div>
 
 @stop

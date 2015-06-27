@@ -52,10 +52,14 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Minha conta</a></li>
-                            <li><a href="{{ Request::root() }}/checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="{{ Request::root() }}/cart"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                            <li><a href="{{ route('account.orders')}}"><i class="fa fa-user"></i> Minha conta</a></li>
+                            <li><a href="{{ route('checkout.place') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                            <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                            @if (Auth::guest())
                             <li><a href="{{ Request::root() }}/auth/login"><i class="fa fa-lock"></i> Login</a></li>
+                            @else
+                            <li><a href="{{ Request::root() }}/auth/logout"><i class="fa fa-lock"></i> Sair({{ Auth::user()->name }})</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -94,13 +98,7 @@
                 </div>
                 <div class="col-sm-5">
                     <div class="search_box pull-right">
-                        @if (Auth::guest())
                             <input type="text" placeholder="Buscar"/>
-                        @else
-                           <span class="nome-logado">Logado como:  <strong>{{ Auth::user()->name }}</strong></span>
-                            <input type="text" placeholder="Buscar"/>
-                        @endif
-
                     </div>
                 </div>
             </div>

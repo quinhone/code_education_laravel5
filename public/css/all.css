@@ -6542,6 +6542,8 @@ ul.sub-menu{
 }
 
 }
+::-webkit-scrollbar{width:6px!important}::-webkit-scrollbar-track{background-color:#243548!important}::-webkit-scrollbar-thumb{background-color:#f29500!important}::-webkit-scrollbar-thumb:window-inactive{opacity:.1!important}
+
 .geral{min-height: 100%; position: relative;}
 
 .content {overflow:hidden;}
@@ -6585,4 +6587,18 @@ ul.sub-menu{
 table td.total-cart{font-weight: bold; font-size: 1.3em;}
 
 .nome-logado{color: #fff; margin-right: 15px;}
+
+#accordion{margin-bottom: 200px;}
+
+#accordion .panel-title ul{list-style: none; padding: 0; margin: 0;}
+#accordion .panel-title ul li{display: inline;}
+#accordion .panel-title ul li.status{width: 300px; text-align: left;}
+
+.panel-default>.panel-heading{overflow: hidden;}
+
+h4.panel-title{margin-top: 10px;}
+
+span.status-pedido{color: #ff0000; font-weight: 600;}
+
+
 /*# sourceMappingURL=all.css.map */

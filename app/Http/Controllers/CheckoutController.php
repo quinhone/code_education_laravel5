@@ -1,39 +1,43 @@
-<?php namespace CodeCommerce\Http\Controllers;
+<?php
 
-use CodeCommerce\Http\Requests;
+namespace CodeCommerce\Http\Controllers;
+
 use CodeCommerce\Http\Controllers\Controller;
-
 use CodeCommerce\Order;
-use CodeCommerce\OrderItem;
-use Illuminate\Http\Request;
+use CodeCommerce\Events\CheckoutEvent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class CheckoutController extends Controller {
+class CheckoutController extends Controller
+{
 
-	public function  place(Order $orderModel, OrderItem $orderItemModel)
+    public function place(Order $orderModel)
     {
-        if(!Session::has('cart'))
+        if (!Session::has('cart'))
         {
             return false;
         }
 
         $cart = Session::get('cart');
 
-        if($cart->getTotal() > 0)
+        if ($cart->getTotal() > 0)
         {
-            $order = $orderModel->create(['user_id' => 1, 'total' => $cart->getTotal() ]);
+            $order = $orderModel->create(['user_id' => 1, 'total' => $cart->getTotal()]);
 
-            foreach($cart->all() as $k => $item)
+            foreach ($cart->all() as $k => $item)
             {
-                $order->items()->create( ['product_id' => $k, 'price' => $item['price'], 'qtd' => $item['qtd'] ]);
+                $order->items()->create(['product_id' => $k, 'price' => $item['price'], 'qtd' => $item['qtd']]);
             }
 
-            $cart->emptyCart('cart');
+            $cart->clear();
 
+            event(new CheckoutEvent(Auth::user(), $order));
+        } else
+        {
+            $cart = 'empty';
         }
 
-        return view('store.placeorder');
+        return view('store.checkout', compact('order', 'cart'));
     }
 
 }
