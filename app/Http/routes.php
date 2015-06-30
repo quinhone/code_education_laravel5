@@ -16,6 +16,7 @@
 
 Route::group(['prefix' => 'admin', 'middleware' => [ 'auth', 'authAdmin'], 'where' => ['id' => '[0-9]+']], function() {
 
+    //
     Route::get('/', array('as' => 'admin_index', 'uses' => 'AdminController@index'));
     Route::get('/orders', array('as' => 'admin_orders', 'uses' => 'AdminAccountController@orders'));
     Route::get('/orders/atualizaStatus/{status}/{id}', array('as' => 'admin_orders_upd', 'uses' => 'AdminAccountController@atualizaStatus'));

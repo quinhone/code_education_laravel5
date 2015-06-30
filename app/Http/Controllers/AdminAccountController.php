@@ -14,13 +14,9 @@ class AdminAccountController extends Controller {
     
     public function orders(Order $order, Commerce $commerce)
     {
-        //$userID = Auth::user()->id;
         $orders = $order->orderBy('id','DESC')->get();
-        //dd($orders);
         
         $comm = $commerce;
-        
-        //$orders = Auth::user()->orders;
         
         return view('admin.orders', compact('orders', 'comm'));
     }

@@ -36,7 +36,6 @@ class CheckoutController extends Controller
         {
             $cart = 'empty';
         }
-
         return view('store.checkout', compact('order', 'cart'));
     }
 

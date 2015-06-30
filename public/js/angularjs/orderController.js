@@ -128,5 +128,4 @@ console.log(e);
     ];
 
     init();
-
 });
