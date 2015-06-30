@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-md-12" ng-controller="orderController">
-    <h1>Pedidos</h1>
+    <h1>Últimos Pedidos</h1>
     <div class="panel-group" id="accordion">
         @foreach($orders as $order)
         <div class="panel panel-default">
@@ -55,6 +55,7 @@
 </div>
 
 @stop
+
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ Request::root() }}/extensions/impromptu/jquery-impromptu.min.css" />
