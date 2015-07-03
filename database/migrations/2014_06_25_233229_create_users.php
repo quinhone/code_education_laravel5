@@ -23,6 +23,7 @@ class CreateUsers extends Migration {
             $table->string('city', 100);
             $table->string('state', 2);
             $table->string('postalcode', 10);
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
