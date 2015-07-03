@@ -68,7 +68,8 @@
 @stop
 
 @section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.min.js"></script>
     <script src="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput.js')  }}"></script>
     <script src="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput-angular.js')  }}"></script>
+    <script src="{{ asset('/js/angularjs/app.js')  }}"></script>
 @stop
