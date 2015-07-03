@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder
 
 		User::create([
 			'name' => 'Luis Carlos Quinhone',
-			'email' => 'lcquinhone@gmail.com',
+			'email' => 'msn@quinhone.com',
 			'password' => Hash::make(123456),
             'address' => 'Rua I-5 Quadra 57 Casa 07',
             'neighborhood' => 'Parque Cuiabá',
