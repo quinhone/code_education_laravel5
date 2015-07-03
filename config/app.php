@@ -135,16 +135,17 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-		'Illuminate\Html\HtmlServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
+        /*
+         * Application Service Providers...
+         */
 
-		/*
-		 * Application Service Providers...
-		 */
-		'CodeCommerce\Providers\AppServiceProvider',
-		'CodeCommerce\Providers\BusServiceProvider',
-		'CodeCommerce\Providers\ConfigServiceProvider',
-		'CodeCommerce\Providers\EventServiceProvider',
+        'CodeCommerce\Providers\AppServiceProvider',
+        'CodeCommerce\Providers\BusServiceProvider',
+        'CodeCommerce\Providers\ConfigServiceProvider',
+        'CodeCommerce\Providers\EventServiceProvider',
 		'CodeCommerce\Providers\RouteServiceProvider',
+        'LaravelPagseguro\LaravelPagseguroServiceProvider',
 
 	],
 
