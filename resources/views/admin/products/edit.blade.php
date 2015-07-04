@@ -71,4 +71,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput.js')  }}"></script>
     <script src="{{ asset('/extensions/bootstrap_tags/bootstrap-tagsinput-angular.js')  }}"></script>
+    <script src="{{ asset('/js/angularjs/app.js')  }}"></script>
 @stop
