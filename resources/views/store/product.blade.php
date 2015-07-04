@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <div class="col-sm-9 padding-right">
+    <div class="products col-sm-9 padding-right">
         <div class="product-details"><!--product-details-->
             <div class="col-sm-4">
                 <div class="view-product">
