@@ -2,7 +2,7 @@
 
 .geral{min-height: 100%; position: relative;}
 
-.content {overflow:hidden;}
+.content {overflow:hidden; margin-bottom: 200px;}
 
 .navbar{margin-bottom: 0px;}
 .container .home h1{text-align: center;}
@@ -55,4 +55,6 @@ table td.total-cart{font-weight: bold; font-size: 1.3em;}
 h4.panel-title{margin-top: 10px;}
 
 span.status-pedido{color: #ff0000; font-weight: 600;}
+
+.btn-crud{margin-bottom: 20px;}
 

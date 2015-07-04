@@ -6,7 +6,7 @@
 		<h1>Images of {{ $product->name }}</h1>
 
 		<div class="row ">
-			<div class="col-md-12">
+			<div class="col-md-12 btn-crud">
 				<a href="{{ route('products_images_create', [ 'id' => $product->id ]) }}" class="btn btn-success btn-md">Add New Image</a>
 			</div>
 		</div>

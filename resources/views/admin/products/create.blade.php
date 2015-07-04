@@ -43,7 +43,7 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-md-3">
-	            {!! Form::label('Reatured ?') !!}
+	            {!! Form::label('Featured ?') !!}
 	            {!! Form::radio('featured', 1, ['class' => 'form-control']) !!} Yes
 	            {!! Form::radio('featured', 0, ['class' => 'form-control']) !!} No
 				</div>
