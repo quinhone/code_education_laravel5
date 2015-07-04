@@ -2,7 +2,7 @@
 
 .geral{min-height: 100%; position: relative;}
 
-.content {overflow:hidden; margin-bottom: 200px;}
+.content {overflow:hidden;}
 
 .navbar{margin-bottom: 0px;}
 .container .home h1{text-align: center;}
