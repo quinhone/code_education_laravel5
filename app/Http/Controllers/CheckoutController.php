@@ -26,7 +26,7 @@ class CheckoutController extends Controller
         {
             $checkout = $checkoutService->createCheckoutBuilder();
 
-            $order = $orderModel->create(['user_id' => 1, 'total' => $cart->getTotal()]);
+            $order = $orderModel->create(['user_id' => Auth::user()->id, 'total' => $cart->getTotal()]);
 
             foreach ($cart->all() as $k => $item)
             {
