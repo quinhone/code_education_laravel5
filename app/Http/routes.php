@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [ 'auth', 'authAdmin'], 'wher
 Route::group(['middleware' => 'auth'], function() {
 
     Route::get('checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+    Route::get('checkout/transaction', ['as' => 'checkout.transaction', 'uses' => 'CheckoutController@transaction']);
     Route::get('account/orders', ['as' => 'account.orders', 'uses' => 'AccountController@orders']);
 });
 

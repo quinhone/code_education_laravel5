@@ -6,6 +6,7 @@ use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\Order;
 use CodeCommerce\Events\CheckoutEvent;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use PHPSC\PagSeguro\Items\Item;
 use PHPSC\PagSeguro\Requests\Checkout\CheckoutService;
@@ -47,6 +48,11 @@ class CheckoutController extends Controller
             $cart = 'empty';
             return view('store.checkout', compact('order', 'cart'));
         }
+    }
+
+    public function  transaction()
+    {
+        return view('store.checkout_retorno')->with('tid',  \Input::get('tid'));
     }
 
 }
